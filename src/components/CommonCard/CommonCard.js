@@ -1,24 +1,18 @@
-import boltIcon from '../../assets/images/boltIcon.svg'
+import CardBody from './CardBody'
+import CardFooter from './CardFooter'
 
 
-export default function CommonCard({ id, name, originType, intents, dateUpdated }) {
+export default function CommonCard({ name, originType, intents, dateUpdated }) {
     return (
         <div className="common-card">
-            <div className="card-body">
-                <div className="card-header">
-                    {originType === 'automated' &&
-                        <span className="automated-type">
-                            <img src={boltIcon} alt="bolt_icon" />
-                            Automated Origin
-                        </span>}
-                    {originType === 'manual' && <span className="manual-type">Manual Origin</span>}
-                </div>
-
-                <div className='card-title'>{name}</div>
-                <div className='card-subtitle'>{intents} intents</div>
-
-            </div>
-            <p>{dateUpdated}</p>
+            <CardBody
+                name={name}
+                originType={originType}
+                intents={intents}
+            />
+            <CardFooter
+                dateUpdated={dateUpdated}
+            />
         </div>
     )
 }
